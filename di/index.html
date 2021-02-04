@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta name="generator" content="Hugo 0.63.2" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="referrer" content="strict-origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>猫狗鼠鱼导航</title>
+  
+  <meta name="description" content="A responsive and clean start page, make your Internet easier as well." />
+   <link rel="icon" href="/favicon.ico" /> 
+
+  <link type="text/css" rel="stylesheet" href="./css/main.css" />
+  <link type="text/css" rel="stylesheet" href="./css/search.css" />
+  <link type="text/css" rel="stylesheet" href="./css/color.css" />
+  
+  
+  
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" 
+      crossorigin="anonymous" />
+  
+  
+
+  
+  <script src="./js/search.js"></script>
+  <script src="./js/init.js"></script>
+  <script>
+    
+    
+    
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      init();
+    });
+  </script>
+  
+
+  <style type="text/css">
+  
+  
+    
+      body {
+        background: url(https://mgsy007.coding.net/p/img/d/img/git/raw/master/img//20201130233602.jpg);
+        background-position: top;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+    
+  
+  
+
+  
+  
+    
+      * {
+        color: white
+      }
+    
+  
+  
+
+  
+  
+    
+      .u-theme-f, 
+      .search-group>span, 
+      .search-group-list label:hover, 
+      .search-engines li label::first-letter, 
+      .search-engines input:hover+label span, 
+      .search-engines input:checked+label span, 
+      .searchbox input, 
+      #poetry, #poetry-author, 
+      .card ul li:hover *, 
+      .card ul li::first-letter, .card ul li i {
+        color: white;
+      }
+
+      .search-engines input:checked+label span, 
+      .searchbox input {
+        border-bottom-color: white;
+      }
+
+      #search-button {
+        background-color: white;
+      }
+
+      #tooltip {
+        box-shadow: 0 0 5px white;;
+      }
+    
+  
+  
+
+  
+  
+    .card,
+    .searchbox form:hover, 
+    .searchbox form:focus-within, 
+    .search-engines input:hover+label span,
+    .search-engines input:checked+label span {
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .blur, 
+    .search-group-list {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  
+  
+
+</style>
+
+
+  
+  
+  
+
+</head>
+<body>
+<header>
+  <nav>
+    <div class="nav-left">
+      <ul>
+        
+          <li>
+            <a onclick="window.open(&#34;https://github.com/SylleoYr/hugo-theme-OriginStart&#34;, '_blank')" tooltip-text="GitHub" onmouseover="showTooltip(this);"
+              onmouseout="hideTooltip();"><i class="fab fa-github u-theme-f"></i></a>
+          </li>
+        
+          <li>
+            <a onclick="window.open(&#34;https://gitee.com/SylleoYr/hugo-theme-OriginStart&#34;, '_blank')" tooltip-text="Gitee" onmouseover="showTooltip(this);"
+              onmouseout="hideTooltip();"><i class="fab fa-git-square u-theme-f"></i></a>
+          </li>
+        
+          <li>
+            <a onclick="window.open(&#34;https://www.bilibili.com&#34;, '_blank')" tooltip-text="bilibili" onmouseover="showTooltip(this);"
+              onmouseout="hideTooltip();"><i class="fab fa-youtube u-theme-f"></i></a>
+          </li>
+        
+      </ul>
+    </div>
+    <div class="nav-right">
+      <ul class="datetime">
+        <li class="date">
+          <i class="far fa-calendar u-theme-f"></i>&nbsp;
+          <span id="current_date"></span>
+        </li>
+        <li class="time">
+          <i class="far fa-clock u-theme-f"></i>&nbsp;
+          <span id="current_time"></span>
+        </li>
+      </ul>
+    </div>
+
+    
+    
+    <div id="he-plugin-simple"></div>
+    
+    
+    
+  </nav>
+</header>
+<main>
+
+
+
+  <section class="search">
+    <div class="searchbox">
+      
+      <div id="search-list" class="hide-type-list">
+        
+        <div class="search-group">
+          <span id="group-name"></span>
+          <div class="search-group-list">
+            
+              
+                <label for="group-搜索" onclick="changeSearchGroup(this.innerText.trim())">
+                  <span class="tile-lg">
+                    <i class="fas fa-search indigo u-theme-f"></i>
+                  </span>搜索</label>
+              
+            
+              
+                <label for="group-学术" onclick="changeSearchGroup(this.innerText.trim())">
+                  <span class="tile-lg">
+                    <i class="fas fa-search u-theme-f"></i>
+                  </span>学术</label>
+              
+            
+              
+                <label for="group-音乐" onclick="changeSearchGroup(this.innerText.trim())">
+                  <span class="tile-lg">
+                    <i class="fas fa-search pink u-theme-f"></i>
+                  </span>音乐</label>
+              
+            
+              
+                <label for="group-影视" onclick="changeSearchGroup(this.innerText.trim())">
+                  <span class="tile-lg">
+                    <i class="fas fa-search cyan u-theme-f"></i>
+                  </span>影视</label>
+              
+            
+          </div> 
+        </div> 
+        
+
+        
+        
+          
+            <div class="group-items" id="group-搜索">
+              <ul class="search-engines">
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-必应" 
+                        value="https://cn.bing.com/search?q={query}" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-必应">
+                        <span>必应</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-Doge" 
+                        value="https://www.dogedoge.com/results?q={query}" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-Doge">
+                        <span>Doge</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-百度" 
+                        value="https://www.baidu.com/s?wd={query}&amp;ie=utf-8" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-百度">
+                        <span>百度</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-GitHub" 
+                        value="https://github.com/search?q={query}&amp;ref=opensearch" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-GitHub">
+                        <span>GitHub</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-B站" 
+                        value="https://search.bilibili.com/all?keyword={query}" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-B站">
+                        <span>B站</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-知乎" 
+                        value="https://www.zhihu.com/search?type=content&amp;q={query}" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-知乎">
+                        <span>知乎</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-豆瓣" 
+                        value="https://www.douban.com/search?q={query}" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-豆瓣">
+                        <span>豆瓣</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                
+              </ul>
+            </div> 
+          
+        
+          
+            <div class="group-items" id="group-学术">
+              <ul class="search-engines">
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-Gole" 
+                        value="https://google.com/search" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-Gole">
+                        <span>Gole</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-DckGo" 
+                        value="https://www.duckduckgo.com" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-DckGo">
+                        <span>DckGo</span>
+                      </label>
+                    </li>
+                  
+                
+              </ul>
+            </div> 
+          
+        
+          
+            <div class="group-items" id="group-音乐">
+              <ul class="search-engines">
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-网易云音乐" 
+                        value="https://music.163.com/#/search/m/?s={query}" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-网易云音乐">
+                        <span>网易云音乐</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-QQ音乐" 
+                        value="https://y.qq.com/portal/search.html#page=1&amp;searchid=1&amp;remoteplace=txt.yqq.top&amp;t=song&amp;w={query}" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-QQ音乐">
+                        <span>QQ音乐</span>
+                      </label>
+                    </li>
+                  
+                
+              </ul>
+            </div> 
+          
+        
+          
+            <div class="group-items" id="group-影视">
+              <ul class="search-engines">
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-央视影音" 
+                        value="https://search.cctv.com/search.php?qtext={query}" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-央视影音">
+                        <span>央视影音</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-Googl" 
+                        value="https://google.com/search" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-Googl">
+                        <span>Googl</span>
+                      </label>
+                    </li>
+                  
+                
+                  
+                    <li>
+                      <input type="radio" name="engine" id="engine-DucuckGo" 
+                        value="https://www.duckduckgo.com" hidden onchange="changeSearchEngine(this.value)">
+                      <label for="engine-DucuckGo">
+                        <span>DucuckGo</span>
+                      </label>
+                    </li>
+                  
+                
+              </ul>
+            </div> 
+          
+        
+      </div> 
+      
+
+      <form height="50px" action="" method="get" target="_blank" id="super-search-fm" onsubmit="return doSearch()">
+        <input autocomplete="off" type="text" id="search-text" style="outline:none" autofocus="">
+        <button type="submit" id="search-button"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    
+  </section>
+
+
+
+
+
+  
+    
+    
+      <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+      <div class="poetry" onclick="getPoetry('jinrishici', '')">
+        <p id="poetry"><i class="fas fa-spinner u-theme-f"></i></p>
+        
+          <p id="poetry-author"><i class="fas fa-spinner u-theme-f"></i></p>
+        
+      </div>
+    
+  
+
+
+
+
+<section class="cards">
+  
+    
+      <div class="card">
+        <h3><i class="fa fa-book blue"></i>&nbsp;猫狗鼠鱼的站点</h3>
+        
+        <ul>
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://catdog007.icu&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="猫狗鼠鱼的typecho博客" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  储物间</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://www.mgsy007.top&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="猫狗鼠鱼的hexo博客" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  Blog</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://catdog007.icu/HTML/directpage/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="一个好看的导航页面" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  导航页</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://catdog007.icu/class&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="为班级做的学习博客" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  班级博客</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://catdog007.icu/bed/index.html&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="自己搭建来存图的" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  图床</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  </a>
+              </li>
+            
+          
+        </ul>
+        
+      </div>
+    
+  
+    
+      <div class="card">
+        <h3><i class="fas fa-music red"></i>&nbsp;音乐</h3>
+        
+        <ul>
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://music.163.com/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                   <i class="fas fa-music red"></i>&nbsp;网易云音乐</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://y.qq.com/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                   <i class="fas fa-music yellow"></i>&nbsp;QQ音乐</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;http://www.kugou.com/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                   <i class="fas fa-music blue"></i>&nbsp;酷狗音乐</a>
+              </li>
+            
+          
+        </ul>
+        
+      </div>
+    
+  
+    
+      <div class="card">
+        <h3><i class="fas fa-video red"></i>&nbsp;视频</h3>
+        
+        <ul>
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://v.qq.com/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                   <i class="fas fa-video red"></i>&nbsp;腾讯视频</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://tv.cctv.com/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                   <i class="fas fa-video yellow"></i>&nbsp;央视</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://www.bilibili.com&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                   <i class="fas fa-video blue"></i>&nbsp;Bilibili</a>
+              </li>
+            
+          
+        </ul>
+        
+      </div>
+    
+  
+    
+      <div class="card">
+        <h3><i class="fa fa-comments pink"></i>&nbsp;社区</h3>
+        
+        <ul>
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://www.wwcun.com/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  万物村</a>
+              </li>
+                          <li>
+                <a onclick="window.open(&#34;http://www.ymidc.top/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text=" -专注于：Vps、Cdn、虚拟主机" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  逸沐云
+</a>
+              </li>
+          
+        </ul>
+        
+      </div>
+    
+  
+    
+      <div class="card">
+        <h3><i class="fas fa-code indigo"></i>&nbsp;DEV</h3>
+        
+        <ul>
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://emojixd.com/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  emoji网站</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://www.nerdfonts.com/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  Nerd Fonts</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://fontawesome.com/icons?d=gallery&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="The web&#39;s most popular icon set and toolkit." onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                   <i class="fab fa-font-awesome"></i>&nbsp;FontAwesome</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://www.iconfont.cn/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="阿里巴巴矢量图标库" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                   <i class="fas fa-icons"></i>&nbsp;Iconfont</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://www.harmonyos.com/cn/home/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="HarmonyOS - Huawei" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  HarmonyOS</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://openharmony.gitee.com&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="面向全场景的分布式开源操作系统" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  OpenHarmony</a>
+              </li>
+            
+          
+        </ul>
+        
+      </div>
+    
+  
+    
+      <div class="card">
+        <h3><i class="fa fa-heart red"></i>&nbsp;thanks</h3>
+        
+        <ul>
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://gohugo.io/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  Hugo</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://github.com/rz3n/hugo-theme-freshstart&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  freshstart</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://hitokoto.cn/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="Hitokoto · 一言" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  Hitokoto</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://www.jinrishici.com/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="诗词实时智能推荐" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  今日诗词</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://www.heweather.com/&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  HeWeather</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://github.com/hustcc/ribbon.js&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                  ribbon.js</a>
+              </li>
+            
+          
+            
+              <li>
+                <a onclick="window.open(&#34;https://fontawesome.com/icons?d=gallery&#34;, '_blank');" one-link-mark="yes" rel="nofollow" 
+                  tooltip-text="" onmouseover="showTooltip(this);" onmouseout="hideTooltip();">
+                   <i class="fab fa-font-awesome"></i>&nbsp;FontAwesome</a>
+              </li>
+            
+          
+        </ul>
+        
+      </div>
+    
+  
+</section>
+
+
+
+    </main>
+
+    
+    <div id="tooltip">
+      <i class="far fa-hand-point-right u-theme-f"></i>&nbsp;
+      <p id="tooltiptext">tooltip</p>
+    </div>
+    
+
+    
+    <div id="back2top-btn" onclick="smoothScrollToTop();">
+      <i class="fas fa-rocket u-theme-f"></i>
+    </div>
+    
+
+  
+  
+    <footer>
+      
+      
+      
+        <div class="footer-line">
+          <span> 2020©Copyright Reserved MGSY Blog </span>
+        </div>
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+
+    </footer>
+  
+
+
+
+
+<script>
+  var timer = setInterval(function () {
+    localTimer();
+  }, 1000);
+
+  function addZero(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+
+  function localTimer() {
+    var today = new Date();
+    var time = addZero(today.getHours()) + ":" + addZero(today.getMinutes()) + ":" + addZero(today.getSeconds());
+    document.getElementById("current_time").innerHTML = time;
+
+    var date = today.getDate() + ' . ' + (today.getMonth() + 1) + ' . ' + today.getFullYear();
+    document.getElementById("current_date").innerHTML = date;
+  }
+</script>
+
+
+
+<script>
+  
+
+  WIDGET = {
+    CONFIG: {
+      "modules": "02",
+      "background": 5,
+      "tmpColor": "rgb(200, 200, 200)",
+      "tmpSize": "0.7rem",
+      "cityColor": "rgb(200, 200, 200)",
+      "citySize": 16,
+      "aqiSize": 16,
+      "weatherIconSize": "0.7rem",
+      "alertIconSize": 18,
+      "padding": "0px 0px 0px 0px",
+      "shadow": "0",
+      "language": "auto",
+      "borderRadius": "5",
+      "fixed": "false",
+      "vertical": "center",
+      "horizontal": "center",
+      "key": "78b86b9bcad04f4f90edb8682cf51782"
+    }
+  }
+</script>
+<script src="https://widget.heweather.net/simple/static/js/he-simple-common.js?v=1.1"></script>
+
+
+
+
+
+
+
+
+
+  
+    
+  
+    
+  
+
+
+</body>
+</html>

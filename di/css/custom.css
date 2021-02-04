@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'NotoSerifSC';
+  src: url('https://cdn.jsdelivr.net/gh/LR787/cdn/NotoSerifSC-Regular.otf'); 
+}
+html,body,div,p{font-family: "NotoSerifSC";}
