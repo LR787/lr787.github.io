@@ -555,7 +555,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+      <a class="category-link" href="/categories/%F0%9F%A5%AD%E7%AC%94%E8%AE%B0/">🥭笔记</a>
     </a>
   </div>
 
@@ -595,8 +595,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <!--markdown--># HTTP
-<p>​ HTTP 协议，是 Hyper Text Transfer Protocol（超文本传输协议）的缩写，是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
+  <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>​ HTTP 协议，是 Hyper Text Transfer Protocol（超文本传输协议）的缩写，是用于从万维网（WWW:World Wide Web ）服务器传输超文本到本地浏览器的传送协议。</p>
 <p>​ HTTP 是一个无状态的协议。<strong>无状态是指客户机(Web 浏览器)和服务器之间不需要建立持久的连接，这意味着当一个客户端向服务器端发出请求，然后服务器返回响应(response)，连接就被关闭了，在服务器端不保留连接的有关信息。</strong>HTTP 遵循请求(Request)/应答(Response)模型。客户机(浏览器)向服务器发送请求，服务器处理请求并返回适当的应答。所有 HTTP 连接都被构造成一套请求和应答。</p>
 <h2 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h2><p>如下：</p>
 <ul>
@@ -619,8 +618,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>另外，HTTP 协议已经不仅仅使用在浏览器上。在前后端分离的架构中，又或者微服务架构的内部通信中，HTTP 因为其数据格式的通用性，和语言无关，被大规模使用。</p>
 <h2 id="HTTP-基本格式"><a href="#HTTP-基本格式" class="headerlink" title="HTTP 基本格式"></a>HTTP 基本格式</h2><p>详细的，可以看看 《猫哥网络编程系列：详解 BAT 面试题》 文章。</p>
 <p>eagle HTTP 请求格式</p>
-<h3 id="HTTP-请求格式"><a href="#HTTP-请求格式" class="headerlink" title="HTTP 请求格式"></a>HTTP 请求格式</h3><p><img src="682875303.png" class="lazyload" data-srcset="682875303.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>请求行：用来说明请求类型，要访问的资源以及所使用的 HTTP 版本。<br>请求头部：紧接着请求行（即第一行）之后的部分，用来说明服务器要使用的附加信息从第二行起为请求头部。<br>HOST ，将指出请求的目的地。<br>User-Agent ，服务器端和客户端脚本都能访问它,它是浏览器类型检测逻辑的重要基础。该信息由你的浏览器来定义，并且在每个请求中自动发送等等<br>空行：请求头部后面的空行是必须的。<br>请求数据：也叫主体，可以添加任意的其他数据。<br>HTTP 响应格式</p>
-<h3 id="HTTP-响应格式"><a href="#HTTP-响应格式" class="headerlink" title="HTTP 响应格式"></a>HTTP 响应格式</h3><p><img src="698977861.png" class="lazyload" data-srcset="698977861.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>状态行：由 HTTP 协议版本号、状态码、状态消息三部分组成。<br>消息报头：用来说明客户端要使用的一些附加信息。<br>空行：消息报头后面的空行是必须的。<br>响应正文：服务器返回给客户端的文本信息。<br>URI 和 URL 的区别</p>
+<h3 id="HTTP-请求格式"><a href="#HTTP-请求格式" class="headerlink" title="HTTP 请求格式"></a>HTTP 请求格式</h3><p><img src="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/682875303.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/682875303.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>请求行：用来说明请求类型，要访问的资源以及所使用的 HTTP 版本。<br>请求头部：紧接着请求行（即第一行）之后的部分，用来说明服务器要使用的附加信息从第二行起为请求头部。<br>HOST ，将指出请求的目的地。<br>User-Agent ，服务器端和客户端脚本都能访问它,它是浏览器类型检测逻辑的重要基础。该信息由你的浏览器来定义，并且在每个请求中自动发送等等<br>空行：请求头部后面的空行是必须的。<br>请求数据：也叫主体，可以添加任意的其他数据。<br>HTTP 响应格式</p>
+<h3 id="HTTP-响应格式"><a href="#HTTP-响应格式" class="headerlink" title="HTTP 响应格式"></a>HTTP 响应格式</h3><p><img src="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/698977861.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/698977861.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>状态行：由 HTTP 协议版本号、状态码、状态消息三部分组成。<br>消息报头：用来说明客户端要使用的一些附加信息。<br>空行：消息报头后面的空行是必须的。<br>响应正文：服务器返回给客户端的文本信息。<br>URI 和 URL 的区别</p>
 <ul>
 <li>URI<br>Web上可用的每种资源如HTML文档、图像、视频片段、程序等都是一个来URI来定位的； URI一般由三部组成：</li>
 </ul>
@@ -629,7 +628,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>①协议(或称为服务方式) ②存有该资源的主机IP地址(有时也包括端口号) ③主机资源的具体地址。如目录和文件名等</p>
 <p>见 《URI 和 URL 的区别》 文章。</p>
 <h2 id="HTTP-协议请求方法"><a href="#HTTP-协议请求方法" class="headerlink" title="HTTP 协议请求方法"></a>HTTP 协议请求方法</h2><p>GET: 对服务器资源的简单请求。<br>POST: 用于发送包含用户提交数据的请求。<br>HEAD：类似于 GET 请求，不过返回的响应中没有具体内容，用于获取报头。<br>PUT：传说中请求文档的一个版本。<br>DELETE：发出一个删除指定文档的请求。<br>TRACE：发送一个请求副本，以跟踪其处理进程。<br>OPTIONS：返回所有可用的方法，检查服务器支持哪些方法。<br>CONNECT：用于 SSL 隧道的基于代理的请求。</p>
-<h3 id="GET-和-POST-的区别"><a href="#GET-和-POST-的区别" class="headerlink" title="GET 和 POST 的区别"></a>GET 和 POST 的区别</h3><p><img src="1599731396.png" class="lazyload" data-srcset="1599731396.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>请求方式    数据位置    明文密文    数据安全    长度限制    应用场景<br>GET    HTTP 请求的 path 中    明文    不安全    长度较小，一般 2k    查询数据<br>POST    HTTP 请求 body 中    可明可密    安全    支持较大数据传输    修改数据<br>GET在浏览器回退时是无害的，而POST会再次提交请求。</p>
+<h3 id="GET-和-POST-的区别"><a href="#GET-和-POST-的区别" class="headerlink" title="GET 和 POST 的区别"></a>GET 和 POST 的区别</h3><p><img src="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/1599731396.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/1599731396.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>请求方式    数据位置    明文密文    数据安全    长度限制    应用场景<br>GET    HTTP 请求的 path 中    明文    不安全    长度较小，一般 2k    查询数据<br>POST    HTTP 请求 body 中    可明可密    安全    支持较大数据传输    修改数据<br>GET在浏览器回退时是无害的，而POST会再次提交请求。</p>
 <p>GET产生的URL地址可以被添加到书签，而POST不可以。</p>
 <p>GET请求会被浏览器主动cache，而POST不会，除非手动设置。</p>
 <p>GET请求只能进行url编码，而POST支持多种编码方式。</p>
@@ -724,7 +723,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>和我们理解的服务端推送，有点（非常）不一样哈。</p>
 <p>SPDY 构成图如下：SPDY 构成图</p>
 <p>SPDY 位于 HTTP 之下，TCP 和 SSL 之上，这样可以轻松兼容老版本的 HTTP 协议(将 HTTP1.x 的内容封装成一种新的 frame 格式)，同时可以使用已有的 SSL 功能。</p>
-<h2 id="七、HTTPS"><a href="#七、HTTPS" class="headerlink" title="七、HTTPS"></a>七、HTTPS</h2><p>推荐先看下 《九个问题从入门到熟悉 HTTPS》 文章，写的很有趣~<br><img src="1516271408.png" class="lazyload" data-srcset="1516271408.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h2 id="七、HTTPS"><a href="#七、HTTPS" class="headerlink" title="七、HTTPS"></a>七、HTTPS</h2><p>推荐先看下 《九个问题从入门到熟悉 HTTPS》 文章，写的很有趣~<br><img src="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/1516271408.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/1516271408.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>另外，也看看 《SSL/TLS 双向认证(一) – SSL/TLS工作原理》 文章，写的更技术向~</p>
 <p>简述<br>​ HTTPS ，实际就是在 TCP 层与 HTTP 层之间加入了 SSL/TLS 来为上层的安全保驾护航，主要用到对称加密、非对称加密、证书，等技术进行客户端与服务器的数据加密传输，最终达到保证整个通信的安全性。</p>
 <p>img</p>
@@ -738,7 +737,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>维护数据的完整性，确保数据在传输过程中不被改变。</p>
 <h3 id="HTTPS实现的过程"><a href="#HTTPS实现的过程" class="headerlink" title="HTTPS实现的过程"></a>HTTPS实现的过程</h3><p>1.建立连接获取证书<br>​ <strong>SSL 客户端通过 TCP 和服务器建立连接之后(443 端口)，并且在一般的 tcp 连接协商(握 手)过程中请求证书。</strong>即客户端发出一个消息给服务器，这个消息里面包含了自己可实现的算法列表和其它一些需要的消息，SSL 的服务器端会回应一个数据包，这里面确定了这次通信所需要的算法，然后服务器向客户端返回证书。==(证书里面包含了服务器信息:域名，申请证书 的公司，公共秘钥)。==</p>
 <p>2.证书验证<br>​ Client 在收到服务器返回的证书后，判断签发这个证书的公共签发机构，并使用这个机构的公 共秘钥确认签名是否有效，客户端还会确保证书中列出的域名就是它正在连接的域名。</p>
-<p>3.数据加密和传输<br><img src="289014873.png" class="lazyload" data-srcset="289014873.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>​ 如果确认证书有效，那么生成对称秘钥并使用服务器的公共秘钥进行加密。然后发送给服务器，服务器使用它的私钥对它进行解密，这样两台计算机可以开始进行对称加密进行通信。</p>
+<p>3.数据加密和传输<br><img src="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/289014873.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/289014873.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>​ 如果确认证书有效，那么生成对称秘钥并使用服务器的公共秘钥进行加密。然后发送给服务器，服务器使用它的私钥对它进行解密，这样两台计算机可以开始进行对称加密进行通信。</p>
 <p>image-20190418163215509</p>
 <h3 id="HTTP-和-HTTPS-的区别"><a href="#HTTP-和-HTTPS-的区别" class="headerlink" title="HTTP 和 HTTPS 的区别"></a>HTTP 和 HTTPS 的区别</h3><p>端口不同：HTTP 与 HTTPS 使用不同的连接方式，用的端口也不一样，前者是 80，后者是 443。</p>
 <p>资源消耗：和 HTTP 通信相比，HTTPS 通信会由于加解密处理消耗更多的 CPU 和内存资源。</p>
@@ -804,7 +803,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>企业接口对接就用双向认证。</p>
 <p>如果想要提高 APP 的安全级别，也可以考虑双向认证。因为，APP 天然方便放入客户端证书，从而提高安全级别。</p>
 <p>为什么抓包工具还能抓到 HTTPS 数据包并解密成功呢<br>不是说HTTPS在网络中传输的是密文吗？这个问题就是中间者攻击（man in zhe middle）。</p>
-<h2 id="中间者攻击原理图"><a href="#中间者攻击原理图" class="headerlink" title="中间者攻击原理图"></a>中间者攻击原理图</h2><p><img src="297997414.png" class="lazyload" data-srcset="297997414.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h2 id="中间者攻击原理图"><a href="#中间者攻击原理图" class="headerlink" title="中间者攻击原理图"></a>中间者攻击原理图</h2><p><img src="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/297997414.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2020/11/297997414.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>解决办法，就是 HTTPS 单向验证。在客户端中内置服务器公钥，在第三步服务器返回的公钥，除了验证公钥的有效性之外，再比对公钥是不是和内置的公钥一样，不一样说明被中间者攻击了，就断开链接不在请求了。<br>这个原理的前提是服务器的私钥没有泄露，客户端的代码不会被破解，道高一尺魔高一丈。信息安全就是在合理的范围内，选择比较合适的加密方法，没有绝对论，只有相对论。在某个范围内比较安全。<br>HTTPS 握手对性能的影响<br>TCP 有三次握手，再加上 HTTPS 的四次握手，影响肯定有，但是可以接受。</p>
 <p>首先，HTTPS 肯定会更慢一点，时间主要花费在两组 SSL 之间的耗时和证书的读取验证上，对称算法的加解密时间几乎可以忽略不计。<br>而且如果不是首次握手，后续的请求并不需要完整的握手过程。客户端可以把上次的加密情况直接发送给服务器从而快速恢复，具体细节可以参考 《图解 SSL/TLS 协议》 。<br>除此以外，SSL 握手的时间并不是只能用来传递加密信息，还可以承担起客户端和服务器沟通 HTTP2 兼容情况的任务。因此从 HTTPS 切换到 HTTP2.0 不会有任何性能上的开销，反倒是得益于 HTTP2.0 的多路复用等技术，后续可以节约大量时间。<br>如果把 HTTPS2.0 当做目标，那么 HTTPS 的性能损耗就更小了，远远比不上它带来的安全性提升。<br>八、HTTP2<br>HTTP2 和 HTTP1.1 的区别</p>
 <p>HTTP2.0简述<br>HTTP2.0 ，可以说是SPDY的升级版（其实原本也是基于SPDY设计的），但是，HTTP2.0 跟 SPDY 仍有不同的地方，如下：</p>
@@ -862,7 +861,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-27T19:41:10+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-27T20:03:04+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2021年2月27日</p>
@@ -943,20 +942,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/posts/1686e3ed.html'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>导航页（自写）</p>
-          <p class='content'>## 导航页（自写）
-
+          <p class='content'>导航页（自写）
 &lt;!DOCTYPE html>
 &lt;html lang="en">
 &lt;head>
     &lt;meta charset="UTF-8">
-    &l...</p>
+    &lt;me...</p>
         </a>
       
       
-        <a class='next' href='/posts/36c1d2eb.html'>
-          <p class='title'>新导航页设计完成+源码附上<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>[blueacc open="true" title="网站地址"]
-猫狗鼠鱼导航页[/blueacc][blueacc open=”true” title=”源码”]源码下载地址：di.zip...</p>
+        <a class='next' href='/posts/913fe937.html'>
+          <p class='title'>计算机与网络<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>计算机与网络一、网络体系结构
+推荐的连接：
+
+《计算机网络体系结构综述（上）》
+《计算机网络体系结构综述（下）》
+
+七层架构主要包括：
+
+物理层:主要定义物理设备标准，如网线的接口类型、光纤的接...</p>
         </a>
       
     </div>
