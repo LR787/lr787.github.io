@@ -1,0 +1,2445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>CSS复合选择器 - 猫狗鼠鱼的Blog</title>
+  
+    <meta name="keywords" content="CSS">
+  
+
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header always shadow blur "  >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            猫狗鼠鱼的Blog
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.catdog007.icu/about
+                  
+                  
+                  
+                    id="https:blogcatdog007icuabout"
+                  >
+                  <i class='fas fa-eye fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+                    
+                      
+            
+              
+                <li>
+                  <a class="menuitem flat-box">
+                    <i class='fas fa-compact-disc fa-fw music'></i>播放器
+                  </a>
+                  <ul class="list-v">
+                    <li>
+                      <div class="aplayer-container">
+                        
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5251523829'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+                      </div>
+                    </li>
+                  </ul>
+                <li>
+              
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="❤搜索❤" />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.catdog007.icu/about
+                  
+                  
+                  
+                    id="https:blogcatdog007icuabout"
+                  >
+                  <i class='fas fa-eye fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" 
+                  
+                  
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>更多
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+                    
+                      
+            
+              
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.catdog007.icu/img/bg.webp"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">猫狗鼠鱼的Blog</p>
+    
+    
+      <p class="subtitle">追随人世之美</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/v4/getting-started/"
+              
+              
+              id="v4getting-started">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>笔记</p>
+            </a>
+          
+            <a href="/examples/"
+              
+              
+              id="examples">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f396.svg'><p>作品</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg'><p>教程</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://blog.catdog007.icu"
+              
+              
+              id="https:blogcatdog007icu">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f389.svg'><p>储物间</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/"
+              
+              
+              id="https:githubcomvolantis-xhexo-theme-volantis">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg'><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        CSS复合选择器
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://catdog007.icu" rel="nofollow noopener">
+    <img no-lazy src="https://cdn.catdog007.icu/img/favicon.ico">
+    <p>猫狗鼠鱼</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年1月26日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="CSS复合选择器" data-path="/posts/85f3190c.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <!--markdown-->## 本资源来自黑马程序员
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="1611673087.png" class="lazyload" data-srcset="1611673087.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></h2><h2 id="typora-copy-images-to-media"><a href="#typora-copy-images-to-media" class="headerlink" title="typora-copy-images-to: media"></a>typora-copy-images-to: media</h2><blockquote>
+<p>第01阶段.前端基础</p>
+</blockquote>
+<h1 id="CSS-第二天"><a href="#CSS-第二天" class="headerlink" title="CSS 第二天"></a>CSS 第二天</h1><p>今天我们围绕一个 导航栏案例进行学习知识点。</p>
+<p>今日重点：</p>
+<ul>
+<li>复合选择器<ul>
+<li>后代选择器</li>
+<li>并集选择器</li>
+</ul>
+</li>
+<li>标签显示模式</li>
+<li>CSS背景<ul>
+<li>背景位置</li>
+</ul>
+</li>
+<li>CSS三大特性<ul>
+<li>优先级</li>
+</ul>
+</li>
+</ul>
+<img src="media/day2.png" class="lazyload" data-srcset="media/day2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" />
+
+<h1 id="1-CSS复合选择器"><a href="#1-CSS复合选择器" class="headerlink" title="1. CSS复合选择器"></a>1. CSS复合选择器</h1><p> 目标</p>
+<ul>
+<li><p>理解</p>
+<ul>
+<li>理解css复合选择器分别的应用场景</li>
+</ul>
+</li>
+<li><p>应用</p>
+<ul>
+<li>使用后代选择器给元素添加样式</li>
+<li>使用并集选择器给元素添加样式</li>
+<li>使用伪类选择器</li>
+</ul>
+</li>
+</ul>
+<p><strong>为什么要学习css复合选择器</strong></p>
+<p>  CSS选择器分为 基础选择器 和 复合选择器 ，但是基础选择器不能满足我们实际开发中，快速高效的选择标签。</p>
+<ul>
+<li>目的是为了可以选择更准确更精细的目标元素标签。</li>
+<li>复合选择器是由两个或多个基础选择器，通过不同的方式组合而成的</li>
+</ul>
+<h2 id="1-1-后代选择器（重点）"><a href="#1-1-后代选择器（重点）" class="headerlink" title="1.1 后代选择器（重点）"></a>1.1 后代选择器（重点）</h2><ul>
+<li><p>概念：</p>
+<p>后代选择器又称为包含选择器</p>
+</li>
+<li><p>作用：</p>
+<p>用来选择元素或元素组的<strong>子孙后代</strong></p>
+</li>
+<li><p>其写法就是把外层标签写在前面，内层标签写在后面，中间用<strong>空格</strong>分隔，先写父亲爷爷，在写儿子孙子。 </p>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">父级 子级&#123;属性:属性值;属性:属性值;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>语法：</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">.class h3&#123;color:red;font-size:16px;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<img src="media/hou.png" class="lazyload" data-srcset="media/hou.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" />
+
+<ul>
+<li>当标签发生嵌套时，内层标签就成为外层标签的后代。</li>
+<li>子孙后代都可以这么选择。 或者说，它能选择任何包含在内 的标签。</li>
+</ul>
+<h2 id="1-2-子元素选择器"><a href="#1-2-子元素选择器" class="headerlink" title="1.2 子元素选择器"></a>1.2 子元素选择器</h2><ul>
+<li><p>作用：</p>
+<p>子元素选择器只能选择作为某元素**子元素(亲儿子)**的元素。</p>
+</li>
+<li><p>其写法就是把父级标签写在前面，子级标签写在后面，中间跟一个 <code>&gt;</code> 进行连接</p>
+</li>
+<li><p>语法：</p>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">.class&gt;h3&#123;color:red;font-size:14px;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<img src="media/zi1.png" class="lazyload" data-srcset="media/zi1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" />
+
+<p><strong>pink老师一句话说出他们</strong></p>
+<blockquote>
+<p>这里的子 指的是 亲儿子  不包含孙子 重孙子之类。</p>
+</blockquote>
+<p>白话：  </p>
+<pre class="line-numbers language-none"><code class="language-none">比如：  .demo &gt; h3 &#123;color: red;&#125;   说明  h3 一定是demo 亲儿子。  demo 元素包含着h3。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="1-3-交集选择器"><a href="#1-3-交集选择器" class="headerlink" title="1.3 交集选择器"></a>1.3 交集选择器</h2><ul>
+<li><p>条件</p>
+<p>交集选择器由两个选择器构成，找到的标签必须满足：既有标签一的特点，也有标签二的特点。</p>
+</li>
+</ul>
+<img src="media/jiaoji.png" class="lazyload" data-srcset="media/jiaoji.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" />
+
+<ul>
+<li>语法：</li>
+</ul>
+<img src="media/jiao.png" class="lazyload" data-srcset="media/jiao.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" />
+
+<ul>
+<li>其中第一个为标签选择器，第二个为class选择器，两个选择器之间<strong>不能有空格</strong>，如h3.special。</li>
+</ul>
+<p><strong>记忆技巧：</strong></p>
+<p>交集选择器 是 并且的意思。  即…又…的意思</p>
+<pre class="line-numbers language-none"><code class="language-none">比如：   p.one   选择的是： 类名为 .one  的 段落标签。  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>用的相对来说比较少，不太建议使用。</p>
+<h2 id="1-4-并集选择器（重点）"><a href="#1-4-并集选择器（重点）" class="headerlink" title="1.4 并集选择器（重点）"></a>1.4 并集选择器（重点）</h2><ul>
+<li>应用：<ul>
+<li>如果某些选择器定义的相同样式，就可以利用并集选择器，可以让代码更简洁。</li>
+</ul>
+</li>
+<li>并集选择器（CSS选择器分组）是各个选择器通过<code>,</code>连接而成的，通常用于集体声明。</li>
+<li>语法：</li>
+</ul>
+<img src="media/bing.png" class="lazyload" data-srcset="media/bing.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" />
+
+<ul>
+<li><p>任何形式的选择器（包括标签选择器、class类选择器id选择器等），都可以作为并集选择器的一部分。</p>
+</li>
+<li><p>记忆技巧：</p>
+<p>并集选择器通常用于集体声明  ，逗号隔开的，所有选择器都会执行后面样式，逗号可以理解为 和的意思。</p>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">比如  .one, p , #test &#123;color: #F00;&#125;  
+表示   .one 和 p  和 #test 这三个选择器都会执行颜色为红色。 
+通常用于集体声明。  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="media/hu.gif" class="lazyload" data-srcset="media/hu.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" />他和他，在一起， 在一起    一起的意思</p>
+<h2 id="测试题"><a href="#测试题" class="headerlink" title="测试题"></a>测试题</h2><pre class="line-numbers language-html" data-language="html"><code class="language-html"> <span class="token comment">&lt;!-- 主导航栏 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>   
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>公司首页<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>公司简介<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>公司产品<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>联系我们<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token comment">&lt;!-- 侧导航栏 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sitenav<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>site-l<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>左侧侧导航栏<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>site-r<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>登录<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在不修改以上结构代码的前提下，完成以下任务：</p>
+<ol>
+<li>链接 登录 的颜色为红色</li>
+<li>主导航栏里面的所有的链接改为橙色    </li>
+<li>主导航栏和侧导航栏里面文字都是14像素并且是微软雅黑。</li>
+</ol>
+<h2 id="1-5-链接伪类选择器（重点）"><a href="#1-5-链接伪类选择器（重点）" class="headerlink" title="1.5  链接伪类选择器（重点）"></a>1.5  链接伪类选择器（重点）</h2><p> 伪类选择器：</p>
+<p> 为了和我们刚才学的类选择器相区别<br>类选择器是一个点 比如 .demo {}<br>而我们的伪类 用 2个点 就是 冒号  比如  :link{}    伪娘 </p>
+<p>作用：</p>
+<p>用于向某些选择器添加特殊的效果。比如给链接添加特殊效果， 比如可以选择 第1个，第n个元素。</p>
+<p>因为伪类选择器很多，比如链接伪类，结构伪类等等。我们这里先给大家讲解链接伪类选择器。</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>a:link      /* 未访问的链接 */</li>
+<li>a:visited   /* 已访问的链接 */</li>
+<li>a:hover     /* 鼠标移动到链接上 */</li>
+<li>a:active    /* 选定的链接 */</li>
+</ul>
+<p>  <strong>注意</strong></p>
+<ul>
+<li>写的时候，他们的顺序尽量不要颠倒  按照  lvha 的顺序。否则可能引起错误。  </li>
+<li>记忆法  <ul>
+<li>   <strong>l</strong>o<strong>v</strong>e   <strong>ha</strong>te     爱上了讨厌    </li>
+<li>   <strong>lv **包包   非常 **ha</strong>o   </li>
+</ul>
+</li>
+<li>因为叫链接伪类，所以都是 利用交集选择器  a:link    a:hover  </li>
+<li>因为a链接浏览器具有默认样式，所以我们实际工作中都需要给链接单独指定样式。</li>
+<li>实际工作开发中，我们很少写全四个状态，一般我们写法如下：</li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">a</span> <span class="token punctuation">&#123;</span>   <span class="token comment">/* a是标签选择器  所有的链接 */</span>
+			<span class="token property">font-weight</span><span class="token punctuation">:</span> 700<span class="token punctuation">;</span>
+			<span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+			<span class="token property">color</span><span class="token punctuation">:</span> gray<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">a:hover</span> <span class="token punctuation">&#123;</span>   <span class="token comment">/* :hover 是链接伪类选择器 鼠标经过 */</span>
+			<span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span> <span class="token comment">/*  鼠标经过的时候，由原来的 灰色 变成了红色 */</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-6-复合选择器总结"><a href="#1-6-复合选择器总结" class="headerlink" title="1.6 复合选择器总结"></a>1.6 复合选择器总结</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>作用</th>
+<th>特征</th>
+<th>使用情况</th>
+<th>隔开符号及用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>后代选择器</td>
+<td>用来选择元素后代</td>
+<td>是选择所有的子孙后代</td>
+<td>较多</td>
+<td>符号是<strong>空格</strong> .nav a</td>
+</tr>
+<tr>
+<td>子代选择器</td>
+<td>选择 最近一级元素</td>
+<td>只选亲儿子</td>
+<td>较少</td>
+<td>符号是**&gt;**   .nav&gt;p</td>
+</tr>
+<tr>
+<td>交集选择器</td>
+<td>选择两个标签交集的部分</td>
+<td>既是 又是</td>
+<td>较少</td>
+<td><strong>没有符号</strong>  p.one</td>
+</tr>
+<tr>
+<td>并集选择器</td>
+<td>选择某些相同样式的选择器</td>
+<td>可以用于集体声明</td>
+<td>较多</td>
+<td>符号是<strong>逗号</strong> .nav, .header</td>
+</tr>
+<tr>
+<td>链接伪类选择器</td>
+<td>给链接更改状态</td>
+<td></td>
+<td>较多</td>
+<td>重点记住 a{} 和 a:hover  实际开发的写法</td>
+</tr>
+</tbody></table>
+<h1 id="2-标签显示模式（display）重点"><a href="#2-标签显示模式（display）重点" class="headerlink" title="2. 标签显示模式（display）重点"></a>2. 标签显示模式（display）重点</h1><p>目标：</p>
+<ul>
+<li>理解<ul>
+<li>标签的三种显示模式</li>
+<li>三种显示模式的特点以及区别</li>
+<li>理解三种显示模式的相互转化</li>
+</ul>
+</li>
+<li>应用<ul>
+<li>实现三种显示模式的相互转化</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-1-什么是标签显示模式"><a href="#2-1-什么是标签显示模式" class="headerlink" title="2.1 什么是标签显示模式"></a>2.1 什么是标签显示模式</h2><ul>
+<li><p>什么是标签的显示模式？</p>
+<p>标签以什么方式进行显示，比如div 自己占一行， 比如span 一行可以放很多个</p>
+</li>
+<li><p>作用： </p>
+<p>我们网页的标签非常多，再不同地方会用到不同类型的标签，以便更好的完成我们的网页。</p>
+</li>
+<li><p>标签的类型(分类)</p>
+<p>HTML标签一般分为块标签和行内标签两种类型，它们也称块元素和行内元素。</p>
+</li>
+</ul>
+<h2 id="2-2-块级元素-block-level"><a href="#2-2-块级元素-block-level" class="headerlink" title="2.2 块级元素(block-level)"></a>2.2 块级元素(block-level)</h2><ul>
+<li>例：</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">常见的块元素有&lt;h1&gt;~&lt;h6&gt;、&lt;p&gt;、&lt;div&gt;、&lt;ul&gt;、&lt;ol&gt;、&lt;li&gt;等，其中&lt;div&gt;标签是最典型的块元素。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="media/12%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0.png" class="lazyload" data-srcset="media/12%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<ul>
+<li>块级元素的特点</li>
+</ul>
+<p>（1）比较霸道，自己独占一行</p>
+<p>（2）高度，宽度、外边距以及内边距都可以控制。</p>
+<p>（3）宽度默认是容器（父级宽度）的100%</p>
+<p>（4）是一个容器及盒子，里面可以放行内或者块级元素。</p>
+<ul>
+<li>注意：<ul>
+<li>只有 文字才 能组成段落  因此 p  里面不能放块级元素，特别是 p 不能放div </li>
+<li>同理还有这些标签h1,h2,h3,h4,h5,h6,dt，他们都是文字类块级标签，里面不能放其他块级元素。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-3-行内元素-inline-level"><a href="#2-3-行内元素-inline-level" class="headerlink" title="2.3 行内元素(inline-level)"></a>2.3 行内元素(inline-level)</h2><ul>
+<li>例：</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">常见的行内元素有&lt;a&gt;、&lt;strong&gt;、&lt;b&gt;、&lt;em&gt;、&lt;i&gt;、&lt;del&gt;、&lt;s&gt;、&lt;ins&gt;、&lt;u&gt;、&lt;span&gt;等，其中&lt;span&gt;标签最典型的行内元素。有的地方也成内联元素<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="media/13%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0.png" class="lazyload" data-srcset="media/13%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+
+
+<ul>
+<li>行内元素的特点：</li>
+</ul>
+<p>（1）相邻行内元素在一行上，一行可以显示多个。</p>
+<p>（2）高、宽直接设置是无效的。</p>
+<p>（3）默认宽度就是它本身内容的宽度。</p>
+<p>（4）<strong>行内元素只能容纳文本或则其他行内元素。</strong></p>
+<p>  <img src="media/w.jpg" class="lazyload" data-srcset="media/w.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" />    注意：</p>
+<ul>
+<li>链接里面不能再放链接。</li>
+<li>特殊情况a里面可以放块级元素，但是给a转换一下块级模式最安全。</li>
+</ul>
+<h2 id="2-4-行内块元素（inline-block）"><a href="#2-4-行内块元素（inline-block）" class="headerlink" title="2.4 行内块元素（inline-block）"></a>2.4 行内块元素（inline-block）</h2><ul>
+<li>例：</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">在行内元素中有几个特殊的标签——&lt;img &#x2F;&gt;、&lt;input &#x2F;&gt;、&lt;td&gt;，可以对它们设置宽高和对齐属性，有些资料可能会称它们为行内块元素。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="media/14%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0.png" class="lazyload" data-srcset="media/14%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<ul>
+<li><p>行内块元素的特点：</p>
+<p>（1）和相邻行内元素（行内块）在一行上,但是之间会有空白缝隙。一行可以显示多个<br>（2）默认宽度就是它本身内容的宽度。<br>（3）高度，行高、外边距以及内边距都可以控制。</p>
+</li>
+</ul>
+<h2 id="2-5-三种模式总结区别"><a href="#2-5-三种模式总结区别" class="headerlink" title="2.5 三种模式总结区别"></a>2.5 三种模式总结区别</h2><table>
+<thead>
+<tr>
+<th>元素模式</th>
+<th>元素排列</th>
+<th>设置样式</th>
+<th>默认宽度</th>
+<th>包含</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>块级元素</td>
+<td>一行只能放一个块级元素</td>
+<td>可以设置宽度高度</td>
+<td>容器的100%</td>
+<td>容器级可以包含任何标签</td>
+</tr>
+<tr>
+<td>行内元素</td>
+<td>一行可以放多个行内元素</td>
+<td>不可以直接设置宽度高度</td>
+<td>它本身内容的宽度</td>
+<td>容纳文本或则其他行内元素</td>
+</tr>
+<tr>
+<td>行内块元素</td>
+<td>一行放多个行内块元素</td>
+<td>可以设置宽度和高度</td>
+<td>它本身内容的宽度</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="2-6-标签显示模式转换-display"><a href="#2-6-标签显示模式转换-display" class="headerlink" title="2.6 标签显示模式转换 display"></a>2.6 标签显示模式转换 display</h2><ul>
+<li>块转行内：display:inline;</li>
+<li>行内转块：display:block;</li>
+<li>块、行内元素转换为行内块： display: inline-block;</li>
+</ul>
+<p>此阶段，我们只需关心这三个，其他的是我们后面的工作。</p>
+<h1 id="3-行高那些事（line-height）"><a href="#3-行高那些事（line-height）" class="headerlink" title="3. 行高那些事（line-height）"></a>3. 行高那些事（line-height）</h1><p>目标</p>
+<ul>
+<li>理解<ul>
+<li>能说出 行高  和 高度  三种关系</li>
+<li>能简单理解为什么行高等于高度单行文字会垂直居中</li>
+</ul>
+</li>
+<li>应用<ul>
+<li>使用行高实现单行文字垂直居中</li>
+<li>能会测量行高</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-1-行高测量"><a href="#3-1-行高测量" class="headerlink" title="3.1 行高测量"></a>3.1 行高测量</h2><p>行高的测量方法：</p>
+ <img src="media/line1.png" class="lazyload" data-srcset="media/line1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="  />
+
+<img src="media/line2.png" class="lazyload" data-srcset="media/line2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="  />
+
+
+
+<h2 id="3-2-单行文本垂直居中"><a href="#3-2-单行文本垂直居中" class="headerlink" title="3.2 单行文本垂直居中"></a>3.2 单行文本垂直居中</h2><p> 行高我们利用最多的一个地方是： 可以让单行文本在盒子中垂直居中对齐。</p>
+<blockquote>
+<p><strong>文字的行高等于盒子的高度。</strong></p>
+</blockquote>
+<p>这里情况些许复杂，开始学习，我们可以先从简单地方入手学会。</p>
+<p>行高   =  上距离 +  内容高度  + 下距离 </p>
+ <img src="media/1.png" class="lazyload" data-srcset="media/1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="  width="700" />
+
+
+
+<p>上距离和下距离总是相等的，因此文字看上去是垂直居中的。</p>
+<p><strong>行高和高度的三种关系</strong></p>
+<ul>
+<li>如果 行高 等 高度  文字会 垂直居中</li>
+<li>如果行高 大于 高度   文字会 偏下 </li>
+<li>如果行高小于高度   文字会  偏上 </li>
+</ul>
+<h1 id="4-CSS-背景-background"><a href="#4-CSS-背景-background" class="headerlink" title="4. CSS 背景(background)"></a>4. CSS 背景(background)</h1><p>目标</p>
+<ul>
+<li>理解<ul>
+<li>背景的作用</li>
+<li>css背景图片和插入图片的区别</li>
+</ul>
+</li>
+<li>应用<ul>
+<li>通过css背景属性，给页面元素添加背景样式</li>
+<li>能设置不同的背景图片位置</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-1-背景颜色-color"><a href="#4-1-背景颜色-color" class="headerlink" title="4.1 背景颜色(color)"></a>4.1 背景颜色(color)</h2><ul>
+<li><p>语法：</p>
+<pre class="line-numbers language-none"><code class="language-none">background-color:颜色值;   默认的值是 transparent  透明的<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="4-2-背景图片-image"><a href="#4-2-背景图片-image" class="headerlink" title="4.2 背景图片(image)"></a>4.2 背景图片(image)</h2></li>
+<li><p>语法： </p>
+</li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">background-image</span> <span class="token punctuation">:</span> none | url <span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td align="center">无背景图（默认的）</td>
+</tr>
+<tr>
+<td>url</td>
+<td align="center">使用绝对或相对地址指定背景图像</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">background-image</span> <span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>images/demo.png<span class="token punctuation">)</span></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>小技巧：  我们提倡 背景图片后面的地址，url不要加引号。</li>
+</ul>
+<h2 id="4-3-背景平铺（repeat）"><a href="#4-3-背景平铺（repeat）" class="headerlink" title="4.3 背景平铺（repeat）"></a>4.3 背景平铺（repeat）</h2><ul>
+<li>语法： </li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">background-repeat</span> <span class="token punctuation">:</span> repeat | no-repeat | repeat-x | repeat-y <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>repeat</td>
+<td align="center">背景图像在纵向和横向上平铺（默认的）</td>
+</tr>
+<tr>
+<td>no-repeat</td>
+<td align="center">背景图像不平铺</td>
+</tr>
+<tr>
+<td>repeat-x</td>
+<td align="center">背景图像在横向上平铺</td>
+</tr>
+<tr>
+<td>repeat-y</td>
+<td align="center">背景图像在纵向平铺</td>
+</tr>
+</tbody></table>
+<h2 id="4-4-背景位置-position-重点"><a href="#4-4-背景位置-position-重点" class="headerlink" title="4.4 背景位置(position) 重点"></a>4.4 背景位置(position) 重点</h2><ul>
+<li>语法： </li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">background-position</span> <span class="token punctuation">:</span> length || length
+
+<span class="token property">background-position</span> <span class="token punctuation">:</span> position || position <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="center">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>length</td>
+<td align="center">百分数 | 由浮点数字和单位标识符组成的长度值</td>
+</tr>
+<tr>
+<td>position</td>
+<td align="center">top | center | bottom | left | center | right   方位名词</td>
+</tr>
+</tbody></table>
+<ul>
+<li>注意：<ul>
+<li>必须先指定background-image属性</li>
+<li>position 后面是x坐标和y坐标。 可以使用方位名词或者 精确单位。</li>
+<li>如果指定两个值，两个值都是方位名字，则两个值前后顺序无关，比如left  top和top  left效果一致</li>
+<li>如果只指定了一个方位名词，另一个值默认居中对齐。</li>
+<li>如果position 后面是精确坐标， 那么第一个，肯定是 x  第二的一定是y</li>
+<li>如果只指定一个数值,那该数值一定是x坐标，另一个默认垂直居中</li>
+<li>如果指定的两个值是 精确单位和方位名字混合使用，则第一个值是x坐标，第二个值是y坐标</li>
+</ul>
+</li>
+</ul>
+<p><strong>实际工作用的最多的，就是背景图片居中对齐了。</strong></p>
+<p>练习1：</p>
+<p>背景大图</p>
+<p>练习2：</p>
+<p>小图片在盒子左侧垂直居中</p>
+<h2 id="4-5-背景附着"><a href="#4-5-背景附着" class="headerlink" title="4.5 背景附着"></a>4.5 背景附着</h2><ul>
+<li><p>背景附着就是解释背景是滚动的还是固定的</p>
+</li>
+<li><p>语法： </p>
+<pre class="line-numbers language-】" data-language="】"><code class="language-】">background-attachment : scroll | fixed <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scroll</td>
+<td align="center">背景图像是随对象内容滚动</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td align="center">背景图像固定</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="4-6-背景简写"><a href="#4-6-背景简写" class="headerlink" title="4.6 背景简写"></a>4.6 背景简写</h2><ul>
+<li>background：属性的值的书写顺序官方并没有强制标准的。为了可读性，建议大家如下写：</li>
+<li>background: 背景颜色 背景图片地址 背景平铺 背景滚动 背景位置;</li>
+<li>语法：</li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">background</span><span class="token punctuation">:</span> transparent <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>image.jpg<span class="token punctuation">)</span></span> repeat-y  scroll center top <span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>案例：</p>
+<p>导航栏案例</p>
+<h2 id="4-7-背景透明-CSS3"><a href="#4-7-背景透明-CSS3" class="headerlink" title="4.7 背景透明(CSS3)"></a>4.7 背景透明(CSS3)</h2><ul>
+<li>语法：</li>
+</ul>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0<span class="token punctuation">,</span> 0.3<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>最后一个参数是alpha 透明度  取值范围 0~1之间</li>
+<li>我们习惯把0.3 的 0 省略掉  这样写  background: rgba(0, 0, 0, .3);</li>
+<li>注意：  背景半透明是指盒子背景半透明， 盒子里面的内容不受影响</li>
+<li>因为是CSS3 ，所以 低于 ie9 的版本是不支持的。</li>
+</ul>
+<h2 id="4-8-背景总结"><a href="#4-8-背景总结" class="headerlink" title="4.8 背景总结"></a>4.8 背景总结</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th align="left">作用</th>
+<th align="left">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>background-color</td>
+<td align="left">背景颜色</td>
+<td align="left">预定义的颜色值/十六进制/RGB代码</td>
+</tr>
+<tr>
+<td>background-image</td>
+<td align="left">背景图片</td>
+<td align="left">url(图片路径)</td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td align="left">是否平铺</td>
+<td align="left">repeat/no-repeat/repeat-x/repeat-y</td>
+</tr>
+<tr>
+<td>background-position</td>
+<td align="left">背景位置</td>
+<td align="left">length/position    分别是x  和 y坐标， 切记 如果有 精确数值单位，则必须按照先X 后Y 的写法</td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td align="left">背景固定还是滚动</td>
+<td align="left">scroll/fixed</td>
+</tr>
+<tr>
+<td>背景简写</td>
+<td align="left">更简单</td>
+<td align="left">背景颜色 背景图片地址 背景平铺 背景滚动 背景位置;  他们没有顺序</td>
+</tr>
+<tr>
+<td>背景透明</td>
+<td align="left">让盒子半透明</td>
+<td align="left">background: rgba(0,0,0,0.3);   后面必须是 4个值</td>
+</tr>
+</tbody></table>
+<h1 id="5-CSS-三大特性"><a href="#5-CSS-三大特性" class="headerlink" title="5. CSS 三大特性"></a>5. CSS 三大特性</h1><p>目标：</p>
+<ul>
+<li>理解<ul>
+<li>能说出css样式冲突采取的原则</li>
+<li>能说出那些常见的样式会有继承</li>
+</ul>
+</li>
+<li>应用<ul>
+<li>能写出CSS优先级的算法</li>
+<li>能会计算常见选择器的叠加值</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-1-CSS层叠性"><a href="#5-1-CSS层叠性" class="headerlink" title="5.1 CSS层叠性"></a>5.1 CSS层叠性</h2><img src="media/20%E5%B1%82%E5%8F%A0%E6%80%A7.png" class="lazyload" data-srcset="media/20%E5%B1%82%E5%8F%A0%E6%80%A7.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<ul>
+<li><p>概念：</p>
+<p>所谓层叠性是指多种CSS样式的叠加。</p>
+<p>是浏览器处理冲突的一个能力,如果一个属性通过两个相同选择器设置到同一个元素上，那么这个时候一个属性就会将另一个属性层叠掉</p>
+</li>
+<li><p>原则：</p>
+<ul>
+<li>样式冲突，遵循的原则是<strong>就近原则。</strong> 那个样式离着结构近，就执行那个样式。</li>
+<li>样式不冲突，不会层叠</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">CSS层叠性最后的执行口诀：  长江后浪推前浪，前浪死在沙滩上。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <img src="media/hai.gif" class="lazyload" data-srcset="media/hai.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="  width="600" height="400" />
+
+<h2 id="5-2-CSS继承性"><a href="#5-2-CSS继承性" class="headerlink" title="5.2 CSS继承性"></a>5.2 CSS继承性</h2><img src="media/21%E7%BB%A7%E6%89%BF%E6%80%A7.png" class="lazyload" data-srcset="media/21%E7%BB%A7%E6%89%BF%E6%80%A7.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<ul>
+<li><p>概念：</p>
+<p>子标签会继承父标签的某些样式，如文本颜色和字号。</p>
+<p> 想要设置一个可继承的属性，只需将它应用于父元素即可。</p>
+</li>
+</ul>
+<p>简单的理解就是：  子承父业。</p>
+<ul>
+<li><strong>注意</strong>：<ul>
+<li>恰当地使用继承可以简化代码，降低CSS样式的复杂性。比如有很多子级孩子都需要某个样式，可以给父级指定一个，这些孩子继承过来就好了。</li>
+<li>子元素可以继承父元素的样式（<strong>text-，font-，line-这些元素开头的可以继承，以及color属性</strong>）</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">CSS继承性口诀：  龙生龙，凤生凤，老鼠生的孩子会打洞。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ <img src="media/shu.gif" class="lazyload" data-srcset="media/shu.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" />
+
+<h2 id="5-3-CSS优先级（重点）"><a href="#5-3-CSS优先级（重点）" class="headerlink" title="5.3 CSS优先级（重点）"></a>5.3 CSS优先级（重点）</h2><img src="media/22%E4%BC%98%E5%85%88%E7%BA%A7.png" class="lazyload" data-srcset="media/22%E4%BC%98%E5%85%88%E7%BA%A7.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+
+<ul>
+<li><p>概念：</p>
+<p>定义CSS样式时，经常出现两个或更多规则应用在同一元素上，此时，</p>
+<ul>
+<li>选择器相同，则执行层叠性</li>
+<li>选择器不同，就会出现优先级的问题。</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-权重计算公式"><a href="#1-权重计算公式" class="headerlink" title="1). 权重计算公式"></a>1). 权重计算公式</h4><p>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity（特殊性）</p>
+<table>
+<thead>
+<tr>
+<th>标签选择器</th>
+<th>计算权重公式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>继承或者 *</td>
+<td>0,0,0,0</td>
+</tr>
+<tr>
+<td>每个元素（标签选择器）</td>
+<td>0,0,0,1</td>
+</tr>
+<tr>
+<td>每个类，伪类</td>
+<td>0,0,1,0</td>
+</tr>
+<tr>
+<td>每个ID</td>
+<td>0,1,0,0</td>
+</tr>
+<tr>
+<td>每个行内样式 style=””</td>
+<td>1,0,0,0</td>
+</tr>
+<tr>
+<td>每个!important  重要的</td>
+<td>∞ 无穷大</td>
+</tr>
+</tbody></table>
+<ul>
+<li>值从左到右，左面的最大，一级大于一级，数位之间没有进制，级别之间不可超越。 </li>
+<li>关于CSS权重，我们需要一套计算公式来去计算，这个就是 CSS Specificity（特殊性）</li>
+<li>div {<pre><code>color: pink!important;  
+</code></pre>
+}</li>
+</ul>
+<h4 id="2-权重叠加"><a href="#2-权重叠加" class="headerlink" title="2). 权重叠加"></a>2). 权重叠加</h4><p>我们经常用交集选择器，后代选择器等，是有多个基础选择器组合而成，那么此时，就会出现权重叠加。</p>
+<p>就是一个简单的加法计算</p>
+<ul>
+<li><p>div ul  li   ——&gt;      0,0,0,3</p>
+</li>
+<li><p>.nav ul li   ——&gt;      0,0,1,2</p>
+</li>
+<li><p>a:hover      —–—&gt;   0,0,1,1</p>
+</li>
+<li><p>.nav a       ——&gt;      0,0,1,1</p>
+<p><img src="media/w.jpg" class="lazyload" data-srcset="media/w.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /> 注意： </p>
+</li>
+</ul>
+<ol>
+<li>数位之间没有进制 比如说： 0,0,0,5 + 0,0,0,5 =0,0,0,10 而不是 0,0, 1, 0， 所以不会存在10个div能赶上一个类选择器的情况。</li>
+</ol>
+<h4 id="3-继承的权重是0"><a href="#3-继承的权重是0" class="headerlink" title="3). 继承的权重是0"></a>3). 继承的权重是0</h4><p>这个不难，但是忽略很容易绕晕。其实，我们修改样式，一定要看该标签有没有被选中。</p>
+<p>1） 如果选中了，那么以上面的公式来计权重。谁大听谁的。<br>2） 如果没有选中，那么权重是0，因为继承的权重为0.</p>
+<h1 id="6-CSS注释"><a href="#6-CSS注释" class="headerlink" title="6. CSS注释"></a>6. CSS注释</h1><p><strong>CSS注释规则：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;*  需要注释的内容  *&#x2F;  进行注释的，即在需要注释的内容前使用 &quot;&#x2F;*&quot; 标记开始注释，在内容的结尾使用 &quot;*&#x2F;&quot;结束。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>   例如：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">p</span> <span class="token punctuation">&#123;</span>
+ <span class="token comment">/* 所有的字体是14像素大小*/</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>                 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="7-今日总结"><a href="#7-今日总结" class="headerlink" title="7. 今日总结"></a>7. 今日总结</h1><img src="media/day2.png" class="lazyload" data-srcset="media/day2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" />
+
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://hexo.catdog007.icu/posts/85f3190c.html>https://hexo.catdog007.icu/posts/85f3190c.html</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+        <div class='donate'>
+          <div class='imgs'>
+            
+              <img src='https://cdn.catdog007.icu/img/donate.png'>
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-27T19:44:18+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年2月27日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CSS/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>CSS</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.catdog007.icu/posts/85f3190c.html&title=CSS复合选择器 - 猫狗鼠鱼的Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.catdog007.icu/posts/85f3190c.html&title=CSS复合选择器 - 猫狗鼠鱼的Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.catdog007.icu/posts/85f3190c.html&title=CSS复合选择器 - 猫狗鼠鱼的Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/posts/9e3c0edc.html'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>推一波二次元(21张)</p>
+          <p class='content'>![0084aYsLly1glr9fripcfj327018gkev.jpg](1611674258.jpg)
+
+</p>
+        </a>
+      
+      
+        <a class='next' href='/posts/d1fc795.html'>
+          <p class='title'>CSS基础选择器<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>## 本内容来自 黑马程序员
+
+
+第01阶段.前端基础.CSS基础选择器
+
+CSS选择器（重点） 学习目标：
+
+理解
+能说出选择器的作用
+id选择器和类选择器的区别
+
+
+应用
+能够使用基础选择器...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+      <p cst>快来留言吧！</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#typora-copy-images-to-media"><span class="toc-number">2.</span> <span class="toc-text">typora-copy-images-to: media</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%90%8E%E4%BB%A3%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">1.1 后代选择器（重点）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%AD%90%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">1.2 子元素选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E4%BA%A4%E9%9B%86%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">1.3 交集选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E5%B9%B6%E9%9B%86%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">1.4 并集选择器（重点）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">测试题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E9%93%BE%E6%8E%A5%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">1.5  链接伪类选择器（重点）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E5%A4%8D%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8%E6%80%BB%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">1.6 复合选择器总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%A0%87%E7%AD%BE%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F"><span class="toc-number">10.</span> <span class="toc-text">2.1 什么是标签显示模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0-block-level"><span class="toc-number">11.</span> <span class="toc-text">2.2 块级元素(block-level)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0-inline-level"><span class="toc-number">12.</span> <span class="toc-text">2.3 行内元素(inline-level)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0%EF%BC%88inline-block%EF%BC%89"><span class="toc-number">13.</span> <span class="toc-text">2.4 行内块元素（inline-block）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93%E5%8C%BA%E5%88%AB"><span class="toc-number">14.</span> <span class="toc-text">2.5 三种模式总结区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E6%A0%87%E7%AD%BE%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F%E8%BD%AC%E6%8D%A2-display"><span class="toc-number">15.</span> <span class="toc-text">2.6 标签显示模式转换 display</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E8%A1%8C%E9%AB%98%E6%B5%8B%E9%87%8F"><span class="toc-number">16.</span> <span class="toc-text">3.1 行高测量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%8D%95%E8%A1%8C%E6%96%87%E6%9C%AC%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD"><span class="toc-number">17.</span> <span class="toc-text">3.2 单行文本垂直居中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2-color"><span class="toc-number">18.</span> <span class="toc-text">4.1 背景颜色(color)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87-image"><span class="toc-number">19.</span> <span class="toc-text">4.2 背景图片(image)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E8%83%8C%E6%99%AF%E5%B9%B3%E9%93%BA%EF%BC%88repeat%EF%BC%89"><span class="toc-number">20.</span> <span class="toc-text">4.3 背景平铺（repeat）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E8%83%8C%E6%99%AF%E4%BD%8D%E7%BD%AE-position-%E9%87%8D%E7%82%B9"><span class="toc-number">21.</span> <span class="toc-text">4.4 背景位置(position) 重点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E8%83%8C%E6%99%AF%E9%99%84%E7%9D%80"><span class="toc-number">22.</span> <span class="toc-text">4.5 背景附着</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E8%83%8C%E6%99%AF%E7%AE%80%E5%86%99"><span class="toc-number">23.</span> <span class="toc-text">4.6 背景简写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E-CSS3"><span class="toc-number">24.</span> <span class="toc-text">4.7 背景透明(CSS3)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-8-%E8%83%8C%E6%99%AF%E6%80%BB%E7%BB%93"><span class="toc-number">25.</span> <span class="toc-text">4.8 背景总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-CSS%E5%B1%82%E5%8F%A0%E6%80%A7"><span class="toc-number">26.</span> <span class="toc-text">5.1 CSS层叠性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-CSS%E7%BB%A7%E6%89%BF%E6%80%A7"><span class="toc-number">27.</span> <span class="toc-text">5.2 CSS继承性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-CSS%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%88%E9%87%8D%E7%82%B9%EF%BC%89"><span class="toc-number">28.</span> <span class="toc-text">5.3 CSS优先级（重点）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%9D%83%E9%87%8D%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F"><span class="toc-number">28.0.1.</span> <span class="toc-text">1). 权重计算公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%9D%83%E9%87%8D%E5%8F%A0%E5%8A%A0"><span class="toc-number">28.0.2.</span> <span class="toc-text">2). 权重叠加</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%BB%A7%E6%89%BF%E7%9A%84%E6%9D%83%E9%87%8D%E6%98%AF0"><span class="toc-number">28.0.3.</span> <span class="toc-text">3). 继承的权重是0</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="CSS复合选择器";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5251523829'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2017-2021 猫狗鼠鱼的Blog</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css", window.volantis.loadcss);
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.3.1/source/js/issues.min.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '5251523829';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+</script>
+
+
+
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.3.1/source/js/valine.min.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"zHVpJgdcLuhhLCxwsvw6qurp-MdYXbMMI","appKey":"okRHDlps6O9788vFX7c9WxUG","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@<%- theme.info.theme_version %>/source/js/app.min.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.3.1/source/js/search/hexo.min.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://hexo.catdog007.icu' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://hexo.catdog007.icu' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://hexo.catdog007.icu' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>
