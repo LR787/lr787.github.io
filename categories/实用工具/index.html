@@ -104,7 +104,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header always shadow blur show"  >
+<header id="l_header" class="l_header always shadow blur "  >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -207,6 +207,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                     id="friends"
                   >
                   <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.catdog007.icu/about
+                  
+                  
+                  
+                    id="https:blogcatdog007icuabout"
+                  >
+                  <i class='fas fa-eye fa-fw'></i>关于
                 </a>
                 
               </li>
@@ -379,6 +395,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.catdog007.icu/about
+                  
+                  
+                  
+                    id="https:blogcatdog007icuabout"
+                  >
+                  <i class='fas fa-eye fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
                 <a class="menuitem flat-box faa-parent animated-hover" 
                   
                   
@@ -422,9 +454,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="half" class='cover-wrapper  dock' style="display: ;">
           
-            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2021/02/3867907489.jpg"></div>
+            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.catdog007.icu/img/bg.webp"></div>
           
           <div class='cover-body'>
   <div class='top'>
@@ -561,7 +593,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div>
         
           
-          <a class='avatar' href=''><img src='https://www.mgsy007.top/img/touxiang.jpg'></a>
+          <a class='avatar' target="_blank" rel="noopener" href='https://catdog007.icu'><img src='https://cdn.catdog007.icu/img/favicon.ico'></a>
         
         <time>2020-09-12</time>
         
@@ -600,22 +632,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
+<section class="widget blogger shadow desktop">
   <div class='content'>
     
       
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+        <a class='avatar flat-box circle' target="_blank" rel="noopener" href='https://catdog007.icu/about'>
+          <img no-lazy src='https://cdn.catdog007.icu/img/favicon.ico'/>
         </a>
       
     
     
       <div class='text'>
         
+          <h2>猫狗鼠鱼</h2>
         
         
-          <p><span id="jinrishici-sentence">猫狗鼠鱼的Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
         
       </div>
     
@@ -641,7 +672,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <a href="https://github.com/volantis-x/"
+            <a href="https://github.com/LR787"
               class="social fab fa-github flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
@@ -740,14 +771,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.add("show");
+  l_header.classList.remove("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="none";
-    cover_wrapper.style.display="none";
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
     
   
 </script>
@@ -1145,7 +1176,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"zHVpJgdcLuhhLCxwsvw6qurp-MdYXbMMI","appKey":"okRHDlps6O9788vFX7c9WxUG","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,

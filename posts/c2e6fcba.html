@@ -104,7 +104,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header always shadow blur show"  >
+<header id="l_header" class="l_header always shadow blur "  >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -207,6 +207,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                     id="friends"
                   >
                   <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.catdog007.icu/about
+                  
+                  
+                  
+                    id="https:blogcatdog007icuabout"
+                  >
+                  <i class='fas fa-eye fa-fw'></i>关于
                 </a>
                 
               </li>
@@ -379,6 +395,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=https://blog.catdog007.icu/about
+                  
+                  
+                  
+                    id="https:blogcatdog007icuabout"
+                  >
+                  <i class='fas fa-eye fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
                 <a class="menuitem flat-box faa-parent animated-hover" 
                   
                   
@@ -422,9 +454,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper post dock' style="display: none;">
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
           
-            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/LR787/image/usr/uploads/2021/02/3867907489.jpg"></div>
+            <div class='cover-bg lazyload placeholder' data-bg="https://cdn.catdog007.icu/img/bg.webp"></div>
           
           <div class='cover-body'>
   <div class='top'>
@@ -516,8 +548,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
             
 <div class='new-meta-item author'>
-  <a class='author' href="" rel="nofollow">
-    <img no-lazy src="https://www.mgsy007.top/img/touxiang.jpg">
+  <a class='author' target="_blank" href="https://catdog007.icu" rel="nofollow noopener">
+    <img no-lazy src="https://cdn.catdog007.icu/img/favicon.ico">
     <p>猫狗鼠鱼</p>
   </a>
 </div>
@@ -626,9 +658,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class='donate'>
           <div class='imgs'>
             
-              <img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'>
-            
-              <img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'>
+              <img src='https://cdn.catdog007.icu/img/donate.png'>
             
           </div>
         </div>
@@ -643,10 +673,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-07T08:02:31+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-27T12:39:48+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年2月7日</p>
+    <p>更新于：2021年2月27日</p>
   </a>
 </div>
 
@@ -747,6 +777,8 @@ typora markdown 编辑器
   <article class="post white-box reveal shadow" id="comments">
     <p ct><i class='fas fa-comments'></i> 评论</p>
     
+      <p cst>快来留言吧！</p>
+    
     <div id="valine_container" class="valine_thread">
   <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
@@ -802,14 +834,14 @@ typora markdown 编辑器
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.add("show");
+  l_header.classList.remove("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="none";
-    cover_wrapper.style.display="none";
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
     
   
 </script>
@@ -1207,7 +1239,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"zHVpJgdcLuhhLCxwsvw6qurp-MdYXbMMI","appKey":"okRHDlps6O9788vFX7c9WxUG","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
