@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：chrome - 猫狗鼠鱼的Blog</title>
+  <title>使用PHP和宝塔计划任务实现typecho定时推送链接到百度 - 猫狗鼠鱼的Blog</title>
+  
+    <meta name="keywords" content="hexo">
   
 
   
@@ -454,7 +454,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.catdog007.icu/img/bg.webp"></div>
           
@@ -524,107 +524,270 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+
+
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/posts/9efafc74.html">
-        Chrome网页截图（电脑+手机）
+    <div class='headimg-div'>
+      <a class='headimg-a'>
+        <img class='headimg' src='https://blog.catdog007.icu/API/img/index.php'/>
       </a>
-    </h2>
+    </div>
   
-  <div class='md'>
+  <div class="article-meta" id="top">
     
-      
-        很多人电脑截图都是使用QQ截图，很明显，它没办法长截图
-电脑方法：
-打开chrome或者edge
-
-打开你想长截图的网页
-
-按下F12进入开发者工具
-
-按下 ctrl+shift+p
-
-出现如下界面：
-
-输入full
-
-点击
-
-完成：
-
-上面证明我们已经搞到图了实际效果：
-
-
-
-拿电脑chrome截手机网页的长截屏
-打开你想截屏的网站，点这个手机状的图标
-
- 进入手机端页面
-
-点击这个图标
-...
-      
     
-  </div>
-  
-    <div class='meta-v3' line_style='dotted'>
-      <div>
+    
+      <h1 class="title">
+        使用PHP和宝塔计划任务实现typecho定时推送链接到百度
+      </h1>
+      <div class='new-meta-box'>
         
           
-          <a class='avatar' target="_blank" rel="noopener" href='https://catdog007.icu'><img src='https://cdn.catdog007.icu/img/favicon.ico'></a>
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://catdog007.icu" rel="nofollow noopener">
+    <img no-lazy src="https://cdn.catdog007.icu/img/favicon.ico">
+    <p>猫狗鼠鱼</p>
+  </a>
+</div>
+
+          
         
-        <time>2021-01-03</time>
+          
+            
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%F0%9F%A5%AD%E7%AC%94%E8%AE%B0/">🥭笔记</a>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年3月2日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="使用PHP和宝塔计划任务实现typecho定时推送链接到百度" data-path="/posts/a7d112b7.html">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="使用PHP和宝塔计划任务实现typecho定时推送链接到百度"><a href="#使用PHP和宝塔计划任务实现typecho定时推送链接到百度" class="headerlink" title="使用PHP和宝塔计划任务实现typecho定时推送链接到百度"></a>使用PHP和宝塔计划任务实现typecho定时推送链接到百度</h2><h3 id="php文件创建阶段"><a href="#php文件创建阶段" class="headerlink" title="php文件创建阶段"></a>php文件创建阶段</h3><p>首先，我们需要一个百度账号，然后登陆了这个百度站长平台</p>
+<p>百度站长平台：<a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/">https://ziyuan.baidu.com</a></p>
+<p>至于怎么在上面注册上你的网站，自己看文档，我这里不赘述。</p>
+<hr>
+<p>其次，我们打开站长管理，打开自己的站点</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301000554.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301000554.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210301000549684"></p>
+<p>然后，把我打二维码的那个地方复制下来，这个就是你的推送API了。</p>
+<p>接着，我们在服务器内（可以在网站目录内）新建一个php文件，命名为<code>baidusubmit.php</code>（名字可以随便取，我这里为了后面方便讲明白）</p>
+<p>编辑这个php文件，内容为</p>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$urls</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string single-quoted-string">'http://www.example.com/1.html'</span><span class="token punctuation">,</span>
+    <span class="token string single-quoted-string">'http://www.example.com/2.html'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$api</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'http://data.zz.baidu.com/urls?site=https://你的站点链接&amp;token=你的API'</span><span class="token punctuation">;</span>
+<span class="token variable">$ch</span> <span class="token operator">=</span> <span class="token function">curl_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$options</span> <span class="token operator">=</span>  <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token constant">CURLOPT_URL</span> <span class="token operator">=></span> <span class="token variable">$api</span><span class="token punctuation">,</span>
+    <span class="token constant">CURLOPT_POST</span> <span class="token operator">=></span> <span class="token constant boolean">true</span><span class="token punctuation">,</span>
+    <span class="token constant">CURLOPT_RETURNTRANSFER</span> <span class="token operator">=></span> <span class="token constant boolean">true</span><span class="token punctuation">,</span>
+    <span class="token constant">CURLOPT_POSTFIELDS</span> <span class="token operator">=></span> <span class="token function">implode</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"\n"</span><span class="token punctuation">,</span> <span class="token variable">$urls</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token constant">CURLOPT_HTTPHEADER</span> <span class="token operator">=></span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Content-Type: text/plain'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">curl_setopt_array</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">,</span> <span class="token variable">$options</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">curl_exec</span><span class="token punctuation">(</span><span class="token variable">$ch</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$result</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?></span></span>		<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>这里说明一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301001127.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301001127.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210301001127382"></p>
+</blockquote>
+<p>保存这个php文件，接着尝试一次，在这个目录使用终端，输入<code>php baidusubmit.php</code>，回车</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301001317.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301001317.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210301001317019"></p>
+<p>我这里填了20个链接，会提示<code>success</code>，也就是说我提交成功了</p>
+<hr>
+<h3 id="计划任务使用阶段"><a href="#计划任务使用阶段" class="headerlink" title="计划任务使用阶段"></a>计划任务使用阶段</h3><p>点这里</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301001444.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301001444.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210301001444146"></p>
+<p>像我这样填，时间自己定就好，注意路径要输入绝对路径</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301001603.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301001603.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210301001603273"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301001639.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/LR787/image/image/20210301001639.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210301001639501"></p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/posts/9efafc74.html'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://hexo.catdog007.icu/posts/a7d112b7.html>https://hexo.catdog007.icu/posts/a7d112b7.html</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+        <div class='donate'>
+          <div class='imgs'>
+            
+              <img src='https://cdn.catdog007.icu/img/donate.png'>
+            
+          </div>
         </div>
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-02T16:12:27+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年3月2日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>hexo</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hexo.catdog007.icu/posts/a7d112b7.html&title=使用PHP和宝塔计划任务实现typecho定时推送链接到百度 - 猫狗鼠鱼的Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://hexo.catdog007.icu/posts/a7d112b7.html&title=使用PHP和宝塔计划任务实现typecho定时推送链接到百度 - 猫狗鼠鱼的Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://hexo.catdog007.icu/posts/a7d112b7.html&title=使用PHP和宝塔计划任务实现typecho定时推送链接到百度 - 猫狗鼠鱼的Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/posts/cf0c2d6a.html'>
+          <p class='title'>typecho转hexo md文件<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>typecho转hexo md文件
+首先，到github下载这个项目
+下载地址：https://github.com/NewbMiao/typecho2Hexo
+
+下载完成后，在你的博客根目录新...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+      <p cst>快来留言吧！</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -632,140 +795,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' target="_blank" rel="noopener" href='https://catdog007.icu/about'>
-          <img no-lazy src='https://cdn.catdog007.icu/img/favicon.ico'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>猫狗鼠鱼</h2>
-        
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/LR787"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%F0%9F%8D%8BCode/" href="/categories/%F0%9F%8D%8BCode/"
-            id="categoriesF09F8D8BCode"
-            ><div class='name'>🍋Code</div><div class='badge'>(8)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%F0%9F%8D%8E%E6%97%A5%E5%B8%B8/" href="/categories/%F0%9F%8D%8E%E6%97%A5%E5%B8%B8/"
-            id="categoriesF09F8D8EE697A5E5B8B8"
-            ><div class='name'>🍎日常</div><div class='badge'>(14)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%F0%9F%8E%89%E6%94%B6%E9%9B%86/" href="/categories/%F0%9F%8E%89%E6%94%B6%E9%9B%86/"
-            id="categoriesF09F8E89E694B6E99B86"
-            ><div class='name'>🎉收集</div><div class='badge'>(22)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%F0%9F%A5%AD%E7%AC%94%E8%AE%B0/" href="/categories/%F0%9F%A5%AD%E7%AC%94%E8%AE%B0/"
-            id="categoriesF09FA5ADE7AC94E8AEB0"
-            ><div class='name'>🥭笔记</div><div class='badge'>(40)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8PHP%E5%92%8C%E5%AE%9D%E5%A1%94%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%AE%9E%E7%8E%B0typecho%E5%AE%9A%E6%97%B6%E6%8E%A8%E9%80%81%E9%93%BE%E6%8E%A5%E5%88%B0%E7%99%BE%E5%BA%A6"><span class="toc-number">1.</span> <span class="toc-text">使用PHP和宝塔计划任务实现typecho定时推送链接到百度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#php%E6%96%87%E4%BB%B6%E5%88%9B%E5%BB%BA%E9%98%B6%E6%AE%B5"><span class="toc-number">1.1.</span> <span class="toc-text">php文件创建阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E4%BD%BF%E7%94%A8%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.</span> <span class="toc-text">计划任务使用阶段</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/ACG/" style="font-size: 14px; color: #999">ACG</a> <a href="/tags/API/" style="font-size: 14px; color: #999">API</a> <a href="/tags/CSS/" style="font-size: 18.29px; color: #7c7c7c">CSS</a> <a href="/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/tags/VIM/" style="font-size: 14px; color: #999">VIM</a> <a href="/tags/amazing/" style="font-size: 14px; color: #999">amazing</a> <a href="/tags/bilibili/" style="font-size: 14px; color: #999">bilibili</a> <a href="/tags/chrome/" style="font-size: 14px; color: #999">chrome</a> <a href="/tags/code/" style="font-size: 15.43px; color: #8f8f8f">code</a> <a href="/tags/dom/" style="font-size: 16.86px; color: #868686">dom</a> <a href="/tags/dplayer/" style="font-size: 14px; color: #999">dplayer</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/hexo/" style="font-size: 16.86px; color: #868686">hexo</a> <a href="/tags/javascript/" style="font-size: 16.86px; color: #868686">javascript</a> <a href="/tags/jquery/" style="font-size: 16.86px; color: #868686">jquery</a> <a href="/tags/markdown/" style="font-size: 15.43px; color: #8f8f8f">markdown</a> <a href="/tags/node/" style="font-size: 14px; color: #999">node</a> <a href="/tags/node-js/" style="font-size: 14px; color: #999">node.js</a> <a href="/tags/typecho/" style="font-size: 14px; color: #999">typecho</a> <a href="/tags/web/" style="font-size: 14px; color: #999">web</a> <a href="/tags/%E4%B8%8B%E8%BD%BD%E5%99%A8/" style="font-size: 14px; color: #999">下载器</a> <a href="/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/" style="font-size: 19.71px; color: #727272">二次元</a> <a href="/tags/%E4%BA%91%E7%9B%98/" style="font-size: 14px; color: #999">云盘</a> <a href="/tags/%E4%BB%A3%E7%A0%81/" style="font-size: 16.86px; color: #868686">代码</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%8A%80%E6%9C%AF%E8%80%83%E8%AF%95/" style="font-size: 15.43px; color: #8f8f8f">信息技术考试</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 14px; color: #999">内网穿透</a> <a href="/tags/%E5%88%86%E9%9A%94%E7%AC%A6/" style="font-size: 14px; color: #999">分隔符</a> <a href="/tags/%E5%8A%A0%E9%80%9F/" style="font-size: 15.43px; color: #8f8f8f">加速</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 24px; color: #555">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 14px; color: #999">博客搭建</a> <a href="/tags/%E5%8F%8B%E9%93%BE/" style="font-size: 14px; color: #999">友链</a> <a href="/tags/%E5%8F%AF%E7%88%B1%E5%A3%81%E7%BA%B8/" style="font-size: 14px; color: #999">可爱壁纸</a> <a href="/tags/%E5%8F%AF%E7%88%B1%E8%A1%A8%E6%83%85%E5%8C%85/" style="font-size: 14px; color: #999">可爱表情包</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 14px; color: #999">图床</a> <a href="/tags/%E5%A5%BD%E7%8E%A9%E7%9A%84/" style="font-size: 14px; color: #999">好玩的</a> <a href="/tags/%E5%AF%BC%E8%88%AA%E9%A1%B5/" style="font-size: 15.43px; color: #8f8f8f">导航页</a> <a href="/tags/%E5%B0%81%E9%9D%A2/" style="font-size: 14px; color: #999">封面</a> <a href="/tags/%E6%88%AA%E5%9B%BE/" style="font-size: 14px; color: #999">截图</a> <a href="/tags/%E6%89%BE%E5%9B%BE/" style="font-size: 14px; color: #999">找图</a> <a href="/tags/%E6%8A%98%E8%85%BE/" style="font-size: 14px; color: #999">折腾</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 14px; color: #999">插件</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 14px; color: #999">源码</a> <a href="/tags/%E7%8C%AB%E7%BE%BD%E9%9B%AB%E5%A3%81%E7%BA%B8/" style="font-size: 14px; color: #999">猫羽雫壁纸</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 22.57px; color: #5f5f5f">笔记</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 15.43px; color: #8f8f8f">编辑器</a> <a href="/tags/%E8%A1%A8%E6%83%85%E5%8C%85/" style="font-size: 14px; color: #999">表情包</a> <a href="/tags/%E8%B8%A9%E5%9D%91/" style="font-size: 15.43px; color: #8f8f8f">踩坑</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 18.29px; color: #7c7c7c">软件</a> <a href="/tags/%E9%97%B2%E8%B0%88/" style="font-size: 14px; color: #999">闲谈</a> <a href="/tags/%E9%98%B2%E7%BA%A2/" style="font-size: 14px; color: #999">防红</a> <a href="/tags/%E9%AB%98%E4%B8%AD%E7%AC%94%E8%AE%B0/" style="font-size: 21.14px; color: #686868">高中笔记</a> <a href="/tags/%E9%BB%91%E5%B9%95/" style="font-size: 14px; color: #999">黑幕</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -774,8 +825,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="使用PHP和宝塔计划任务实现typecho定时推送链接到百度";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
